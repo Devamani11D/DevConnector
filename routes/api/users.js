@@ -8,8 +8,9 @@ import { check,validationResult } from 'express-validator';
 
 const router=express.Router();
 
-//@route POST
-//@access Public
+//@route    POST
+//@desc     register user
+//@access   Public(returns token)
 router.post('/',[
     check('name',"Name is required.").not().isEmpty(),
     check('email',"Please enter valid email").isEmail(),

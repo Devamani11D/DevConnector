@@ -7,6 +7,9 @@ import config from 'config';
 import { check,validationResult } from 'express-validator';
 const router=express.Router();
 
+//@route    /api/auth
+//@desc     authentication middleware and logs user
+//@access   /private
 router.get('/',auth,async(req,res)=>{
     try{
     const user=await User.findById(req.user.id);
@@ -19,6 +22,10 @@ router.get('/',auth,async(req,res)=>{
 
 })
 
+
+//@route    Post /
+//@desc     sign in user
+//@access   private(returns token);
 router.post('/',[
     check('email',"Please enter valid email").isEmail(),
     check('password',"Minimum length of 6 character password").exists()
