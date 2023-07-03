@@ -1,0 +1,4 @@
+{
+    "mongoURI":"mongodb+srv://devamanid:De27ji18ma09va@devconnector.fkm7vwj.mongodb.net/?retryWrites=true&w=majority",
+    "jwtSecret":"Dev123"
+}
