@@ -6,7 +6,12 @@ import PostRoute from './routes/api/posts.js';
 import AuthRoute from './routes/api/auth.js';
 import ProfileRoute from './routes/api/profile.js';
 import path from 'path';
-import exp from 'constants';
+import {fileURLToPath} from 'url';
+
+const __filename = fileURLToPath(import.meta.url);
+
+const __dirname = path.dirname(__filename);
+
 const app=express();
 
 //Database Call
