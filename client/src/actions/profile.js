@@ -5,7 +5,7 @@ import { Navigate } from "react-router-dom";
 const getProfileOfUser=()=>async dispatch=>{
 
     try{
-    const res=await axios.get('http://127.0.0.1:5500/api/profile/me');
+    const res=await axios.get('/api/profile/me');
 
     dispatch({
         type:GET_PROFILE,
@@ -29,7 +29,7 @@ export const createProfile=(formdata,edit=false)=>async dispatch=>{
 
             }
         }
-        const res=await axios.post('http://127.0.0.1:5500/api/profile',formdata,config);
+        const res=await axios.post('/api/profile',formdata,config);
 
         dispatch({
             type:GET_PROFILE,
@@ -64,7 +64,7 @@ export const addExperience=(formdata)=>async dispatch=>{
 
             }
         }
-        const res=await axios.put('http://127.0.0.1:5500/api/profile/experience',formdata,config);
+        const res=await axios.put('/api/profile/experience',formdata,config);
 
         dispatch({
             type:UPDATE_PROFILE,
@@ -100,7 +100,7 @@ export const addEducation=(formdata)=>async dispatch=>{
 
             }
         }
-        const res=await axios.put('http://127.0.0.1:5500/api/profile/education',formdata,config);
+        const res=await axios.put('/api/profile/education',formdata,config);
 
         dispatch({
             type:UPDATE_PROFILE,
@@ -130,7 +130,7 @@ export const addEducation=(formdata)=>async dispatch=>{
 export const deleteExp=(expid)=>async dispatch=>{
     try{
         console.log('inside del');
-    const updatedProfile=await axios.delete(`http://127.0.0.1:5500/api/profile/experience/${expid}`);
+    const updatedProfile=await axios.delete(`/api/profile/experience/${expid}`);
 
 
     dispatch({

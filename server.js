@@ -6,6 +6,7 @@ import PostRoute from './routes/api/posts.js';
 import AuthRoute from './routes/api/auth.js';
 import ProfileRoute from './routes/api/profile.js';
 import path from 'path';
+import exp from 'constants';
 const app=express();
 
 //Database Call
@@ -33,6 +34,15 @@ if(process.env.NODE_ENV==='production'){
         res.sendFile(path.resolve(__dirname,'client','build','index.html'));
     })
 }
+
+//static
+
+app.use(express.static(path.join(__dirname,'./client/build')));
+
+app.get('*',function(req,res){
+    res.sendFile(path.join(__dirname,'./client/build/index.html'));
+
+});
 
 app.listen(port,()=>{
     console.log(`App listening at port ${port}`);
