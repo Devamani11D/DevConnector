@@ -16,12 +16,11 @@ import React,{Fragment,useEffect} from 'react';
 import {loadUser } from './actions/auth';
 import Alert from './components/layout/Alert';
 import Dashboard from './components/dashboard/Dashboard';
-import PrivateRoute from './components/routing/PrivateRoute';
 import EditProfile from './components/profile/EditProfile';
 import ProfileCreate from './components/profile/ProfileCreate';
 import AddExperience from './components/profile/AddExperience';
 import AddEducation from './components/profile/AddEducation';
-// import PrivateRoute from './components/routing/PrivateRoute';
+import PrivateRoute from './components/routing/PrivateRoute';
 //Redux
 import { Provider } from 'react-redux';
 import store from './store';
@@ -42,13 +41,18 @@ function App() {
         </Routes>
         <section className='container'>
         <Alert/>
+        
         {/* <PrivateRoute exact path='/dashboard' element={<Dashboard/>}></PrivateRoute> */}
           <Routes>
 
+            <Route element={<PrivateRoute/>}>
+              <Route exact path='/dashboard' element={<Dashboard/>}></Route>
+            </Route>
             <Route exact path='/register' element={< Register/>}></Route>
+            <Route exact path='/dashboard' element={<Dashboard/>}></Route>
             <Route exact path='/login' element={< Login/>}></Route>
             {/* <Route exact path='/dashboard' element={<PrivateRoute/>}> */}
-            <Route exact path='/dashboard' element={<Dashboard/>}></Route>
+            
             <Route exact path='/create-profile' element={<ProfileCreate/>}></Route>
             <Route exact path='/edit-profile' element={<EditProfile/>}></Route>
             
